@@ -13,18 +13,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Publish Docker Image
-        working-directory: web
         uses: matootie/github-docker@v3.1.0
         with:
           accessToken: ${{ github.token }}
           containerRegistry: true
-
+          working-directory: web
       - name: Deploy on CapRover
-        working-directory: web
         uses: caprover/deploy-from-github@v1.1.2
         with:
+          working-directory: web
           server: https://mike-caprover-pocketbase-demo.uk
-          app: 'sveltekit'
-          token: '${{ secrets.APP_TOKEN }}'
-          image: 'ghcr.io/midanosi/mike-cck-mvp:latest'
-
+          app: "sveltekit"
+          token: "${{ secrets.APP_TOKEN }}"
+          image: "ghcr.io/midanosi/mike-cck-mvp:latest"
