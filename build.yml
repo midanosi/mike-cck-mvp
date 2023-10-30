@@ -13,11 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Publish Docker Image
+        working-directory: web
         uses: matootie/github-docker@v3.1.0
         with:
           accessToken: ${{ github.token }}
           containerRegistry: true
+
       - name: Deploy on CapRover
+        working-directory: web
         uses: caprover/deploy-from-github@v1.1.2
         with:
           server: https://mike-caprover-pocketbase-demo.uk
