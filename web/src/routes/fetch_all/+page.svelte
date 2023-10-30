@@ -1,12 +1,12 @@
 <script lang="ts">
 	export let data;
-	console.log(`data.meal_orders`, data.meal_orders);
+	console.log(`data.meal_recipient`, data.meal_recipient);
 </script>
 
 <div>
 	<ul>
-		{#each data.meal_orders.items as meal_order}
-			<li>{meal_order.address}</li>
+		{#each data.meal_recipient.items as meal_recipient}
+			<li>{meal_recipient.delivery_address}</li>
 		{/each}
 	</ul>
 </div>

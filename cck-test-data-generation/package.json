@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "add_data": "npx ts-node --esm ./addFakeData.ts"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,8 @@
     "dotenv": "^16.3.1"
   },
   "dependencies": {
+    "pluscodes": "^2.6.0",
     "pocketbase": "^0.19.0"
-  }
+  },
+  "type": "module"
 }

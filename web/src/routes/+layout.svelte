@@ -1,6 +1,7 @@
 <script>
 	import '../app.postcss';
 	export let data;
+	console.log(`data.user`, data.user)
 </script>
 
 <div class="min-h-full">
@@ -10,38 +11,26 @@
 		</div>
 		<div class="flex-none">
 			{#if !data.user}
-				<div class="dropdown dropdown-end">
+				<div class="mt-3 p-2 shadow bg-base-100 rounded-box w-52 flex gap-4">
 					<a href="/login" class="btn btn-primary">Login</a>
 					<a href="/register" class="btn btn-secondary">Register</a>
 				</div>
-				<!-- content here -->
 			{:else}
-				<div class="dropdown dropdown-end mr-4">
-					<a href="/projects/new" class="btn btn-primaru btn-outline">Add Project</a>
-				</div>
-				<div class="dropdown dropdown-end mr-4">
-					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-					<label tabindex="0" for="" class="btn btn-ghost btn-circle avatar">
-						<div class="w-10 rounded-full">
-							<img src="https://placeimg.com/80/80/people" alt="User avatar" />
-						</div>
-					</label>
-					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-					<ul
-						tabindex="0"
-						class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-					>
-						<li>
-							<a href="/my/projects" class="justify-between">My Projects</a>
-						</li>
-						<li><a href="/my/settings">Settings</a></li>
-						<li>
-							<form action="/logout" method="POST">
-								<button type="submit" class="w-full text-start">Logout</button>
-							</form>
-						</li>
-					</ul>
-				</div>
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+				<ul
+					tabindex="0"
+					class="mt-3 p-2 shadow bg-base-100 rounded-box w-52 flex gap-4"
+				>
+					<li>
+						Logged in as: {data.user.username}
+						volunteer name {data.user.volunteer?.name}
+					</li>
+					<li>
+						<form action="/logout" method="POST">
+							<button type="submit" class="w-full text-start">Logout</button>
+						</form>
+					</li>
+				</ul>
 			{/if}
 		</div>
 	</nav>

@@ -1,11 +1,11 @@
-import { faker} from '@faker-js/faker'
+import { faker } from '@faker-js/faker/locale/en_GB';
 
-export const buildFakeVolunteer = ({id,email}: {id: string, email: string}) => {
+export const buildFakeVolunteer = ({id,email}) => {
     const volunteer = {
         user: id,
-        name: faker.person.fullName(),
+        name: faker.person.firstName() + faker.person.lastName(),
         cck_name: faker.word.adjective(5) + '_' + faker.word.noun(6),
-        phone_number: faker.phone.number(),
+        phone_number: faker.phone.number('+#############'),
         email: email ?? faker.internet.email(),
         is_admin: faker.datatype.boolean(0.1),
         clean_interest: faker.datatype.boolean(0.3),
