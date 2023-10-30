@@ -33,8 +33,8 @@ jobs:
       - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: './web' # https://github.com/docker/build-push-action/issues/169#issuecomment-711729397
-          file: './web/Dockerfile'
+          context: './backend' # https://github.com/docker/build-push-action/issues/169#issuecomment-711729397
+          file: './backend/Dockerfile'
           push: true
           tags: ${{ env.POCKETBASE_IMAGE_URL }}
   
@@ -43,10 +43,8 @@ jobs:
         with:
           server: https://mike-caprover-pocketbase-demo.uk
           app: "pocketbase-manual"
-          # server: "${{ secrets.CAPROVER_SERVER }}"
-          # app: "${{ secrets.APP_NAME }}"
-          token: "${{ secrets.APP_TOKEN }}"
-          image: ${{ env.IMAGE_URL }}
+          token: "${{ secrets.POCKETBASE_APP_TOKEN }}"
+          image: ${{ env.POCKETBASE_IMAGE_URL }}
     
   build:
     runs-on: ubuntu-latest
@@ -84,22 +82,6 @@ jobs:
         with:
           server: https://mike-caprover-pocketbase-demo.uk
           app: "sveltekit"
-          # server: "${{ secrets.CAPROVER_SERVER }}"
-          # app: "${{ secrets.APP_NAME }}"
           token: "${{ secrets.APP_TOKEN }}"
           image: ${{ env.IMAGE_URL }}
-      # -
-      #   name: Build and push
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     accessToken: ${{ github.token }}
-      #     containerRegistry: true
-      #     working-directory: web
-      # - name: Deploy on CapRover
-      #   uses: caprover/deploy-from-github@v1.1.2
-      #   with:
-      #     server: https://mike-caprover-pocketbase-demo.uk
-      #     app: "sveltekit"
-      #     token: "${{ secrets.APP_TOKEN }}"
-      #     image: "ghcr.io/midanosi/mike-cck-mvp:latest"
 
