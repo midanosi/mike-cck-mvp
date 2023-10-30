@@ -4,7 +4,7 @@ import type { TypedPocketBase } from "./pocketbase-types"
 
 export const handle: Handle = async ({ event, resolve}) => {
     // event.locals.pb = new PocketBase('https://mike-cck-mvp.fly.dev')
-    event.locals.pb = new PocketBase('http://localhost:8090') as TypedPocketBase
+    event.locals.pb = new PocketBase('https://pocketbase-manual.mike-caprover-pocketbase-demo.uk') as TypedPocketBase
     event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
 	if (event.locals.pb.authStore.isValid) {
