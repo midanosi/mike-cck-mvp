@@ -12,7 +12,7 @@ const NUM_MEAL_RECIPIENTS = 2
 export default async function addFakeVolunteers() {
     console.log('in addfakevolunteers')
 
-    const pb = new Pocketbase('http://127.0.0.1:8090')
+    const pb = new Pocketbase('https://pocketbase-manual.mike-caprover-pocketbase-demo.uk')
     let auth
     try {
         auth = await loginToPocketBase(pb)

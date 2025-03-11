@@ -7,7 +7,7 @@ export const buildFakeVolunteer = ({id,email}) => {
         cck_name: faker.word.adjective(5) + '_' + faker.word.noun(6),
         phone_number: faker.phone.number('+#############'),
         email: email ?? faker.internet.email(),
-        is_admin: faker.datatype.boolean(0.1),
+        is_cck_admin: faker.datatype.boolean(0.1),
         clean_interest: faker.datatype.boolean(0.3),
         cook_interest: faker.datatype.boolean(0.3),
         deliver_interest: faker.datatype.boolean(0.3),

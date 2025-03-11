@@ -10,15 +10,20 @@
 	<form action="?/login" method="POST" class="flex w-full flex-col items-center space-y-2 pt-4">
 		<div>
 			<label for="email">Email</label>
-			<input type="email" name="email" />
+			<input type="email" name="email" class="border-2" />
 		</div>
 		<div>
 			<label for="password">Password</label>
-			<input type="password" name="password" />
+			<input type="password" name="password" class="border-2" />
 		</div>
 		<div>
-			<button type="submit">Login</button>
+			<button type="submit" class="bg-blue-400 px-2 text-white">Login</button>
 		</div>
+		<br class="h-8" />
+		<aside class="p-2 bg-gray-300">
+			Eryn99@yahoo.com<br />
+			password
+		</aside>
 		{#if form?.notVerified}
 			<div class="alert alert-error w-full max-w-md shadow-lg">
 				<div>
